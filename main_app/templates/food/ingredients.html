@@ -1,0 +1,14 @@
+{% extends "baselist.html" %}
+{% load staticfiles %}
+
+{% block smalltitle %}
+Składniki
+{% endblock %}
+
+{% block itemlink %}
+{% url 'ingredient_id' item.id %}
+{% endblock %}
+
+{% block itemcontent %}
+  <p>Price: {{item.price}}</p>
+{% endblock %}

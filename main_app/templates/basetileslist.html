@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load static %}
+{% block head %}
+<link href="{% static 'css/ListStyle.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/TileStyle.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+
+
+{% block content %}
+  <div class="container">
+
+
+    <h2>{% block smalltitle %}{% endblock %}</h2>
+
+    {% block itemcontent %}
+    {% endblock %}
+  </div>
+
+
+{% endblock %}

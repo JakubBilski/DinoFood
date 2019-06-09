@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+<link href="{% static 'css/ItemStyle.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+
+    <h2>{% block smalltitle %}{% endblock %}</h2>
+
+
+    <div class="item">
+      <div class="itemname">
+        <h3>{% block itemname %}{{ item.name }}{% endblock %}</h3>
+      </div>
+      <div class="listitem-content">
+
+        {% block itemcontent %}{% endblock %}
+      </div>
+      {% if user.is_superuser %}
+        <a class="delete right" href="{% block updatelink %}{% endblock %}">
+          Zaktualizuj
+        </a>
+        <a class="delete right" href="{% block deletelink %}{% endblock %}">
+          Usuń
+        </a>
+      {% if item.accepted != True %}
+        <a class="delete right" href="{% block acceptlink %}{% endblock %}">
+          Akceptuj
+        </a>
+      {% endif %}
+      {% endif %}
+    </div>
+
+
+  </div>
+
+
+{% endblock %}

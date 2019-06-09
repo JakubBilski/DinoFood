@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+  <link href="{% static 'css/FormStyle.css' %}" rel="stylesheet" type="text/css">
+
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+
+    <h2>{% block smalltitle %}{% endblock %}</h2>
+
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% block itemcontent %}{% endblock %}
+      <button type="submit" onclick="{% block submitclick %}{% endblock %}">Zatwierdź</button>
+    </form>
+
+  </div>
+
+{% endblock %}
